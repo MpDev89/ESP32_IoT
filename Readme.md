@@ -87,7 +87,7 @@ The scheme resume tables:
 ## 📦 Github Setup
 Clone the repository:
 ```bash
-git clone https://github.com/MpDev89/NORAB106_mlx90632.git
+git clone https://github.com/MpDev89/ESP32_IoT.git
 cd project-name
 ```
 ## 🗒️ Results
