@@ -33,6 +33,12 @@ class MyServerCallbacks : public BLEServerCallbacks {
   void onDisconnect(BLEServer *pServer) override{
     deviceConnected = false;
     DEBUG_PRINT("Device Disconnected\n");
+    // restart advertising so central can discover again
+    BLEAdvertising *pAdvertising = pServer->getAdvertising();
+    if (pAdvertising) {
+        pAdvertising->start();
+        DEBUG_PRINT("Advertising restarted on disconnect\n");
+    }
   }
 };
 
