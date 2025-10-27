@@ -57,24 +57,21 @@ void ble_create_service() {
   characteristic_temp = pService->createCharacteristic(
                      CHARACTERISTIC_UUID_TEMP,
                       BLECharacteristic::PROPERTY_READ |
-                      BLECharacteristic::PROPERTY_WRITE  |
-                      BLECharacteristic::PROPERTY_NOTIFY |
-                      BLECharacteristic::PROPERTY_INDICATE
+                      BLECharacteristic::PROPERTY_NOTIFY
                    );
+  characteristic_temp->addDescriptor(new BLE2902());
   characteristic_humidity = pService->createCharacteristic(
                      CHARACTERISTIC_UUID_HUMIDITY,
                       BLECharacteristic::PROPERTY_READ |
-                      BLECharacteristic::PROPERTY_WRITE  |
-                      BLECharacteristic::PROPERTY_NOTIFY |
-                      BLECharacteristic::PROPERTY_INDICATE
+                      BLECharacteristic::PROPERTY_NOTIFY
                    );
+  characteristic_humidity->addDescriptor(new BLE2902());
   characteristic_slrrad = pService->createCharacteristic(
                      CHARACTERISTIC_UUID_SLRRAD,
                       BLECharacteristic::PROPERTY_READ |
-                      BLECharacteristic::PROPERTY_WRITE  |
-                      BLECharacteristic::PROPERTY_NOTIFY |
-                      BLECharacteristic::PROPERTY_INDICATE
+                      BLECharacteristic::PROPERTY_NOTIFY
                    );
+  characteristic_slrrad->addDescriptor(new BLE2902());
   pService->start();
   BLEAdvertising *pAdvertising = pServer->getAdvertising();
   pAdvertising->start();
